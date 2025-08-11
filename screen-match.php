@@ -1,5 +1,23 @@
 <?php
 
+// =============================
+// 7. Funções
+// =============================
+
+function exibeMensagemLancamento ( int $ano): void { // não tem um retorno específico
+    if ($ano >= 2024) {
+        echo "Esse filme é um lançamento\n";
+    } elseif ($ano > 2020 && $ano <= 2023) {
+        echo "Esse filme ainda é novo\n";
+    } else {
+        echo "Esse filme não é um lançamento\n";
+    }
+}
+
+function incluidoNoPlano ( bool $planoPrime,  int $anoLancamento): bool {  // função com retorno, retorna um booleano
+    return $planoPrime || $anoLancamento < 2020;
+}
+
 echo "Bem-vindo(a) ao Screen Match!\n";
 
 // =============================
@@ -16,7 +34,8 @@ $planoPrime = true;
 
 // Operador OU (||) → basta uma condição ser verdadeira
 // Operador E (&&)  → ambas condições precisam ser verdadeiras
-$incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
+
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento); // função com retorno
 
 // =============================
 // 3. Saída de dados
@@ -26,17 +45,19 @@ $incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
 echo "Nome do filme: $nomeFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
+exibeMensagemLancamento($anoLancamento);
+
 // =============================
 // 4. Estruturas condicionais
 // =============================
 
-if ($anoLancamento >= 2024) {
-    echo "Esse filme é um lançamento\n";
-} elseif ($anoLancamento > 2020 && $anoLancamento <= 2023) {
-    echo "Esse filme ainda é novo\n";
-} else {
-    echo "Esse filme não é um lançamento\n";
-}
+// if ($anoLancamento >= 2024) {
+//         echo "Esse filme é um lançamento\n";
+//     } elseif ($anoLancamento > 2020 && $anoLancamento <= 2023) {
+//         echo "Esse filme ainda é novo\n";
+//     } else {
+//         echo "Esse filme não é um lançamento\n";
+//     }
 
 // =============================
 // 5. Match Expression (PHP 8+)
@@ -81,4 +102,4 @@ if ($quantidadeNotas > 0) {
     echo "Nenhuma nota foi informada.\n";
 }
 
-var_dump($argv); //exibe os valores dessa variável e seu tipo
+// var_dump($argv); //exibe os valores dessa variável e seu tipo
