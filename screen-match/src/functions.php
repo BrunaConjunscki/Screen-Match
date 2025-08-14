@@ -18,7 +18,7 @@ function incluidoNoPlano(bool $planoPrime, int $anoLancamento): bool {
 function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero): array{
     return [
         'nome' => $nome,
-        'ano' => $anoLancamento,
+        'anoLancamento' => $anoLancamento,
         'nota' => $nota,
         'genero' => $genero
     ];

@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/functions.php"; // pegando as funções do arquivo
+require __DIR__ . "/src/functions.php"; // pegando as funções do arquivo
 
 echo "Bem-vindo(a) ao screen match!\n";
 
@@ -42,7 +42,7 @@ $filme = criaFilme(
     genero: "super-herói"
 ); 
 
-echo $filme["ano"];
+print_r($filme); // ler as infos do filme
 
 var_dump($notas);
 sort($notas);
