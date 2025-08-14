@@ -102,4 +102,4 @@ if ($quantidadeNotas > 0) {
     echo "Nenhuma nota foi informada.\n";
 }
 
-// var_dump($argv); //exibe os valores dessa variável e seu tipo
+var_dump($argv); //exibe os valores e o tipo dessa variável 

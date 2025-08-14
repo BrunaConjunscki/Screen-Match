@@ -15,7 +15,7 @@ $notasParaOFilme = [ // array(lista) de notas
 ];
 
 $filme = [ // array associativo
-    'nome' => 'Wicked',
+    'nome' => 'Wicked: Parte 1',
     'ano' => 2024,
     'nota' => 10,
     'genero' => 'Musical'
@@ -30,8 +30,6 @@ echo $filme['genero'];
 
 // $argc → quantidade de argumentos passados
 // $argv → array de argumentos (o índice 0 é o nome do arquivo)
-
-$notas = [];
 
 for ($contador = 1; $contador < $argc; $contador++) {
     $notas[] = (float) $argv[$contador];
@@ -49,3 +47,17 @@ foreach ($notas as $nota) { //melhor maneira dentre as três
 $notaFilme = array_sum($notas) / $quantidadeDeNotas; // função para fazer soma de array
 
 var_dump($notas);
+sort($notas);
+var_dump($notas);
+min($notas);
+var_dump($filme['nome']); 
+
+// =============================
+// 2. Como Manipular Strings
+// =============================
+
+
+$posicaoDoisPontos = strpos($filme['nome'], ':'); // string position
+var_dump($posicaoDoisPontos);
+
+var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
