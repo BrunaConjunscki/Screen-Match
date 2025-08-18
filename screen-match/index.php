@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . "/src/Modelo/Filme.php"; 
 require __DIR__ . "/src/functions.php"; // pegando as funções do arquivo
 
 echo "Bem-vindo(a) ao screen match!\n";
@@ -24,7 +25,7 @@ echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
-exibeMensagemLancamento($anoLancamento);
+//exibeMensagemLancamento($anoLancamento);
 
 $genero = match ($nomeFilme) {
     "Top Gun - Maverick" => "ação",
@@ -42,7 +43,8 @@ $filme = criaFilme(
     genero: "super-herói"
 ); 
 
-print_r($filme); // ler as infos do filme
+//print_r($filme); // ler as infos do filme
+echo $filme->anoLancamento; // lendo o item do objeto
 
 var_dump($notas);
 sort($notas);
@@ -50,11 +52,14 @@ var_dump($notas);
 $menorNota = min($notas);
 var_dump($menorNota);
 
-var_dump($filme['nome']);
-$posicaoDoisPontos = strpos($filme['nome'], ':');
+//var_dump($filme['nome']);
+var_dump($filme->nome); // item do objeto
+//$posicaoDoisPontos = strpos($filme['nome'], ':');
+$posicaoDoisPontos = strpos($filme->nome, ':');
 var_dump($posicaoDoisPontos);
 
-var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
+//var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
+var_dump(substr($filme->nome, 0, $posicaoDoisPontos));
 
 //echo json_encode($filme); //pega uma variável/dado em php e transforma ela no formato JSON
 

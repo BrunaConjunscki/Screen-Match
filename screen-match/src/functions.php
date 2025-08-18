@@ -15,11 +15,22 @@ function incluidoNoPlano(bool $planoPrime, int $anoLancamento): bool {
 }
 
 
-function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero): array{
-    return [
-        'nome' => $nome,
-        'anoLancamento' => $anoLancamento,
-        'nota' => $nota,
-        'genero' => $genero
-    ];
+// function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero): array{
+//     return [
+//         'nome' => $nome,
+//         'anoLancamento' => $anoLancamento,
+//         'nota' => $nota,
+//         'genero' => $genero
+//     ];
+// }
+
+function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero): Filme{
+    $filme = new Filme(); // criando variável do tipo filme 
+
+    $filme->nome = $nome; //atribuindo valores
+    $filme->anoLancamento = $anoLancamento; 
+    $filme->nota = $nota; 
+    $filme->genero = $genero; 
+
+    return $filme;
 }
