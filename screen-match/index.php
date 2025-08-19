@@ -1,71 +1,20 @@
 <?php
 
-require __DIR__ . "/src/Modelo/Filme.php"; 
-require __DIR__ . "/src/functions.php"; // pegando as funções do arquivo
+require __DIR__ . "/src/Modelo/Filme.php";
 
-echo "Bem-vindo(a) ao screen match!\n";
+echo "----Bem-Vinda ao ScreenMatch----\n";
 
-$nomeFilme = "Top Gun - Maverick";
+$filme = new Filme(); // criando um objeto filme do tipo filme
+$filme -> nome = "Wicked - Parte 1"; // instanciando o objeto filme
+$filme -> anoLancamento = 2024;
+$filme -> genero = "musical";
 
-$anoLancamento = 2022;
+$filme ->avalia(10);
+$filme ->avalia(9);
+$filme ->avalia(8.8);
+$filme ->avalia(9.5);
+$filme ->avalia(8);
 
-$quantidadeDeNotas = $argc - 1;
-$notas = [];
-
-for ($contador = 1; $contador < $argc; $contador++) {
-    $notas[] = (float) $argv[$contador];
-}
-
-$notaFilme = array_sum($notas) / $quantidadeDeNotas;
-$planoPrime = true;
-
-$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
-
-echo "Nome do filme: " . $nomeFilme . "\n";
-echo "Nota do filme: $notaFilme\n";
-echo "Ano de lançamento: $anoLancamento\n";
-
-//exibeMensagemLancamento($anoLancamento);
-
-$genero = match ($nomeFilme) {
-    "Top Gun - Maverick" => "ação",
-    "Thor: Ragnarok" => "super-herói",
-    "Se beber não case" => "comédia",
-    default => "gênero desconhecido",
-};
-
-echo "O gênero do filme é: $genero\n";
-
-$filme = criaFilme( 
-    nome: "Thor: Ragnarok", 
-    anoLancamento: 2021, 
-    nota: 8, 
-    genero: "super-herói"
-); 
-
-//print_r($filme); // ler as infos do filme
-echo $filme->anoLancamento; // lendo o item do objeto
-
-var_dump($notas);
-sort($notas);
-var_dump($notas);
-$menorNota = min($notas);
-var_dump($menorNota);
-
-//var_dump($filme['nome']);
-var_dump($filme->nome); // item do objeto
-//$posicaoDoisPontos = strpos($filme['nome'], ':');
-$posicaoDoisPontos = strpos($filme->nome, ':');
-var_dump($posicaoDoisPontos);
-
-//var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
-var_dump(substr($filme->nome, 0, $posicaoDoisPontos));
-
-//echo json_encode($filme); //pega uma variável/dado em php e transforma ela no formato JSON
-
-//var_dump(json_encode('{"nome":"Thor: Ragnarok","ano":2021,"nota":7.8,"genero":"super-her\u00f3i"}', true)); // transforma o JSON em php
-
-$filmeComoStringJson = json_encode($filme); // transformando em JSON
-
-file_put_contents(__DIR__  . '/filme.json', $filmeComoStringJson); //colocar conteúdo dentro de um arquivo: -> 
-//definimos o caminho do aruivo e seu nome, juntamente com o conteúdo que queremos nesse arquivo
+//var_dump($filme);
+print_r($filme);
+echo  "A média de notas do filme é: " . $filme->media(); //exibindo a média de notas
